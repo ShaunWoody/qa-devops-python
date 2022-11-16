@@ -15,9 +15,10 @@ def get_data():
 
     currentTime = data['datetime']
 
-    test = dt.datetime.fromisoformat(currentTime).strftime('%d:%m:%Y-%X')
+    date = dt.datetime.fromisoformat(currentTime).strftime('%d/%m/%Y')
+    time = dt.datetime.fromisoformat(currentTime).strftime('%X')
     
-    return jsonify(test)
+    return jsonify(date,time) 
 
 @app.route('/london',methods=['GET'])
 def get_london():
@@ -27,9 +28,10 @@ def get_london():
 
     currentTime = data['datetime']
 
-    test = dt.datetime.fromisoformat(currentTime).strftime('%d:%m:%Y-%X')
+    date = dt.datetime.fromisoformat(currentTime).strftime('%d/%m/%Y')
+    time = dt.datetime.fromisoformat(currentTime).strftime('%X')
     
-    return jsonify(test)  
+    return jsonify(date,time)  
 
 @app.errorhandler(404) 
 def invalid_route(e): 
